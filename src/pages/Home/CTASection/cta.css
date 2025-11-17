@@ -1,0 +1,33 @@
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #1262eb, #1ac8ff);
+  transition: background 0.3s ease;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.cta-section .lead {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.cta-actions {
+  margin-top: 30px;
+}
+
+.cta-section .btn-light:hover {
+  background: #f0f8ff;
+  color: #1262eb;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section .btn-outline-light:hover {
+  background: #ffffff30;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
