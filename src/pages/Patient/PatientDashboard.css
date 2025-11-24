@@ -1,0 +1,382 @@
+/* Patient Dashboard Styles */
+.patient-dashboard {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  background: white;
+  padding: 30px 0;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 30px;
+}
+
+.welcome-section h2 {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.dashboard-content {
+  padding: 0 15px;
+}
+
+/* Health Metrics */
+.health-metric {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.metric-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.metric-icon i {
+  font-size: 1.5rem;
+}
+
+.metric-content h6 {
+  margin: 0 0 5px 0;
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--dark-color);
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Appointment Items */
+.appointment-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.appointment-item:last-child {
+  border-bottom: none;
+}
+
+.appointment-date {
+  margin-right: 20px;
+  text-align: center;
+}
+
+.appointment-date strong {
+  display: block;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.appointment-date small {
+  color: #6c757d;
+}
+
+.appointment-details h6 {
+  margin: 0 0 5px 0;
+  color: var(--dark-color);
+}
+
+.appointment-details p {
+  margin: 0 0 5px 0;
+  color: #6c757d;
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 0;
+  bottom: -20px;
+  width: 2px;
+  background-color: var(--primary-color);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -35px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.timeline-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.timeline-header h6 {
+  margin: 0;
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.timeline-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.timeline-description {
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+/* Lab Results */
+.lab-results .card {
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.lab-results .table th {
+  background-color: #f8f9fa;
+  border-top: none;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.lab-results .table td {
+  vertical-align: middle;
+}
+
+/* Prescriptions */
+.prescription-item {
+  padding: 15px 0;
+}
+
+.prescription-item:last-child hr {
+  display: none;
+}
+
+/* Appointments */
+.appointment-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+.appointment-date-badge {
+  text-align: center;
+  background: var(--primary-color);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+.appointment-date-badge .day {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.appointment-date-badge .month {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+/* Badge Styles */
+.badge {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+}
+
+.badge-success {
+  background-color: var(--success-color);
+}
+
+.badge-primary {
+  background-color: var(--primary-color);
+}
+
+.badge-warning {
+  background-color: var(--warning-color);
+}
+
+.badge-secondary {
+  background-color: var(--secondary-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 20px 0;
+  }
+  
+  .welcome-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .health-metric {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .metric-icon {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .appointment-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .appointment-date {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .timeline {
+    padding-left: 20px;
+  }
+  
+  .timeline-icon {
+    left: -30px;
+  }
+  
+  .timeline-item::before {
+    left: -20px;
+  }
+  
+  .timeline-content {
+    padding: 15px;
+  }
+  
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .appointment-card .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .appointment-date-badge {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: 0 10px;
+  }
+  
+  .health-metric {
+    padding: 12px;
+  }
+  
+  .metric-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .metric-icon i {
+    font-size: 1.2rem;
+  }
+  
+  .timeline-content {
+    padding: 12px;
+  }
+  
+  .appointment-card {
+    padding: 15px;
+  }
+}
+
+
+.patient-summary-card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background-color: #f0f4fa; 
+  border-radius: 12px;
+}
+
+.patient-summary-card .card-body {
+  padding: 2rem;
+}
+
+.patient-avatar {
+  font-size: 3.5rem; 
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.patient-meta .badge {
+  font-size: 0.85rem;
+  padding: 0.5em 0.75em;
+}
+
+.patient-summary-right {
+  border-left: 1px solid #dee2e6;
+  padding-left: 1.5rem;
+  height: 100%;
+}
+
+.patient-summary-right strong {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .patient-summary-right {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #dee2e6;
+  }
+}

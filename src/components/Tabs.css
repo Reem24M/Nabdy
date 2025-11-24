@@ -1,0 +1,152 @@
+/* Tabs Component Styles */
+.tabs-container {
+  width: 100%;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-content {
+  padding: 20px 0;
+}
+
+.tab-pane {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom underline variant */
+.nav-underline-custom .nav-link {
+  
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #6c757d;
+  font-weight: 500;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-underline-custom .nav-link:hover {
+  
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.nav-underline-custom .nav-link.active {
+  border-bottom-color: var(--primary-color);
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 8px 8px 0 0;
+}
+
+/* Enhanced tab styles */
+.nav-tabs .nav-link {
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #6c757d;
+  font-weight: 500;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  background: none;
+}
+
+.nav-tabs .nav-link:hover {
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: #f8f9ff;
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom-color: var(--primary-color);
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 8px 8px 0 0;
+}
+
+/* Pills variant */
+.nav-pills .nav-link {
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  color: #6c757d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: none;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Badge styling */
+.nav-link .badge {
+  font-size: 0.7rem;
+  padding: 3px 6px;
+}
+
+/* Disabled state */
+.nav-link:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Icon spacing */
+.nav-link i {
+  font-size: 0.9rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .nav-tabs,
+  .nav-pills,
+  .nav-underline-custom {
+    flex-wrap: wrap;
+  }
+  
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .nav-pills .nav-link {
+    margin-bottom: 5px;
+  }
+  
+  .tab-content {
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .nav-link i {
+    font-size: 0.8rem;
+  }
+  
+  .nav-link .badge {
+    font-size: 0.6rem;
+    padding: 2px 4px;
+  }
+}
