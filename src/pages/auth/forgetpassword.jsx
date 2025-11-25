@@ -95,7 +95,7 @@ export default function ForgetPassword() {
               className={`w-full py-3.5 rounded-xl font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2
                 ${status === 'success' 
                   ? 'bg-gray-400 cursor-not-allowed' 
-                  : 'bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 active:scale-98 shadow-lg'
+                  : 'bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 active:scale-98 shadow-lg'
                 }`}
             >
               {status === 'loading' ? (
@@ -124,7 +124,7 @@ export default function ForgetPassword() {
         {/* Footer Note */}
         <p className="text-center text-xs text-gray-500 mt-6">
           Your email is safe with us. We never share it. 
-          <a href="#" className="text-indigo-600 hover:underline ml-1">Privacy Policy</a>
+          <a href="#" className="text-blue-600 hover:underline ml-1">Privacy Policy</a>
         </p>
         </div>
 
