@@ -3,7 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
 // import { useState } from "react";
-
+import Img from '../../../public/bg.jpg'
 export default function Login() {
   const LoginSchema = z.object({
     email: z.string().email({ message: "Invalid email address" }),
@@ -27,7 +27,13 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+  <div
+          className="min-h-screen flex items-center justify-center p-6 
+               bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('${Img}')`
+          }}
+        >
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Login to Your Account
