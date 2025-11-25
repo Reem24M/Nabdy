@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import NotificationSystem from '../components/NotificationSystem';
-import Tabs, { DoctorDashboardTabs } from '../components/Tabs';
+// import React, { useState } from 'react';
+import NotificationSystem from '../../components/NotificationSystem';
+import Tabs, { DoctorDashboardTabs } from '../../components/Tabs';
 
 const ClinicDoctorDashboard = () => {
-  const [notifications, setNotifications] = useState([]);
+  // const [notifications, ] = useState([]);
 
   return (
     <div className="clinic-doctor-dashboard">
@@ -16,13 +16,7 @@ const ClinicDoctorDashboard = () => {
                 <p className="text-muted mb-0">Clinic Practice • Private Clinic</p>
               </div>
             </div>
-            <div className="col-md-6 text-md-end">
-              <NotificationSystem 
-                notifications={notifications}
-                onMarkAsRead={() => {}}
-                onDeleteNotification={() => {}}
-              />
-            </div>
+           
           </div>
         </div>
         

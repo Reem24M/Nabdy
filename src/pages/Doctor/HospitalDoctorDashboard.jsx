@@ -225,7 +225,7 @@ const patientRecords = [
 ];
 
 const HospitalDoctorDashboard = () => {
-  const [notifications, setNotifications] = useState([]);
+  // const [notifications, setNotifications] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
   const [mainTabIndex, setMainTabIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
@@ -252,17 +252,17 @@ const HospitalDoctorDashboard = () => {
     }
   }, [selectedPatient]);
 
-  const handleMarkNotificationAsRead = (notificationId) => {
-    setNotifications((prev) =>
-      prev.map((notification) =>
-        notification.id === notificationId ? { ...notification, isRead: true } : notification
-      )
-    );
-  };
+  // const handleMarkNotificationAsRead = (notificationId) => {
+  //   setNotifications((prev) =>
+  //     prev.map((notification) =>
+  //       notification.id === notificationId ? { ...notification, isRead: true } : notification
+  //     )
+  //   );
+  // };
 
-  const handleDeleteNotification = (notificationId) => {
-    setNotifications((prev) => prev.filter((notification) => notification.id !== notificationId));
-  };
+  // const handleDeleteNotification = (notificationId) => {
+  //   setNotifications((prev) => prev.filter((notification) => notification.id !== notificationId));
+  // };
 
   const handleTabChange = (index) => {
     setActiveTab(index);
@@ -975,13 +975,13 @@ const HospitalDoctorDashboard = () => {
                 </p>
               </div>
             </div>
-            <div className="col-md-6 text-md-end">
+            {/* <div className="col-md-6 text-md-end">
               <NotificationSystem
                 notifications={notifications}
                 onMarkAsRead={handleMarkNotificationAsRead}
                 onDeleteNotification={handleDeleteNotification}
               />
-            </div>
+            </div> */}
           </div>
         </div>
 

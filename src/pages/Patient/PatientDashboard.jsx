@@ -6,26 +6,26 @@ import './PatientDashboard.css';
 import { patientRecords } from '../../data/patientData';
 
 const PatientDashboard = () => {
-  const [notifications, setNotifications] = useState([]);
+  // const [notifications, setNotifications] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
 
   const patient = patientRecords[0]; 
 
-  const handleMarkNotificationAsRead = (notificationId) => {
-    setNotifications(prev => 
-      prev.map(notification => 
-        notification.id === notificationId 
-          ? { ...notification, isRead: true }
-          : notification
-      )
-    );
-  };
+  // const handleMarkNotificationAsRead = (notificationId) => {
+  //   setNotifications(prev => 
+  //     prev.map(notification => 
+  //       notification.id === notificationId 
+  //         ? { ...notification, isRead: true }
+  //         : notification
+  //     )
+  //   );
+  // };
 
-  const handleDeleteNotification = (notificationId) => {
-    setNotifications(prev => 
-      prev.filter(notification => notification.id !== notificationId)
-    );
-  };
+  // const handleDeleteNotification = (notificationId) => {
+  //   setNotifications(prev => 
+  //     prev.filter(notification => notification.id !== notificationId)
+  //   );
+  // };
 
   const handleTabChange = (index) => {
     setActiveTab(index);
@@ -282,13 +282,13 @@ const PatientDashboard = () => {
                 </p>
               </div>
             </div>
-            <div className="col-md-6 text-md-end">
+            {/* <div className="col-md-6 text-md-end">
               <NotificationSystem 
                 notifications={notifications}
                 onMarkAsRead={handleMarkNotificationAsRead}
                 onDeleteNotification={handleDeleteNotification}
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="patient-summary-card card mb-4">

@@ -9,6 +9,7 @@ import ForgetPassword from './pages/auth/forgetpassword'
 import ResetPassword from './pages/auth/resetpassword'
 import About from './pages/About/about'
 import Contactus from './pages/ContactUs/contactus'
+import LabDashboard from './pages/labDoctors/LabDashboard.jsx'
 export default function RoutesApp() {
   return (
     <div  className='bg-gray-200 min-h-lvh '>
@@ -30,6 +31,8 @@ export default function RoutesApp() {
         <Route path='/doctor/dashboard' element={<DoctorDashboard/>} />
         {/* Patient routes */}
         <Route path='/patient/dashboard' element={<PatientDashboard/>} />
+        {/* lab routes */}
+        <Route  path='/lab/dashboard' element={<LabDashboard/>} />
       </Routes>
     </div>
   )
