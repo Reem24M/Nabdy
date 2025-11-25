@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
-// import { useState } from "react";
+import { LogIn } from "lucide-react";   {/* Only this icon */}
 import Img from '../../../public/bg.jpg'
+
 export default function Login() {
   const LoginSchema = z.object({
     email: z.string().email({ message: "Invalid email address" }),
@@ -20,33 +21,35 @@ export default function Login() {
   } = useForm({
     resolver: zodResolver(LoginSchema),
   });
-//   const [patient,setpatient]=useState(null)
+
   const onSubmit = async (data) => {
     console.log(data);
-
   };
 
   return (
-  <div
-          className="min-h-screen flex items-center justify-center p-6 
+    <div
+      className="min-h-screen flex items-center justify-center p-6 
                bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('${Img}')`
-          }}
-        >
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Login to Your Account
-        </h2>
+      style={{
+        backgroundImage: `url('${Img}')`
+      }}
+    >
+      <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-6">
+
+        {/* ONLY THIS PART CHANGED — Icon centered above title */}
+        <div className="flex flex-col items-center mb-6">
+          <div className="p-3 bg-blue-100 rounded-full mb-3">
+            <LogIn className="w-8 h-8 text-blue-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800">
+            Login to Your Account
+          </h2>
+        </div>
+        {/* END OF CHANGE */}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-           
-
           <div>
-            <label
-              htmlFor="email"
-              className="block text-gray-700 font-medium mb-1"
-            >
+            <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
               Email
             </label>
             <input
@@ -60,17 +63,12 @@ export default function Login() {
               }`}
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.email.message}
-              </p>
+              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
             )}
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-gray-700 font-medium mb-1"
-            >
+            <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
               Password
             </label>
             <input
@@ -84,20 +82,21 @@ export default function Login() {
               }`}
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.password.message}
-              </p>
+              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
             )}
           </div>
+
           <p className="text-sm text-right text-blue-500 hover:underline">
             <Link to="/auth/forgetpassword">Forgot Password?</Link>
           </p>
+
           <button
             type="submit"
             className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
           >
             Login
           </button>
+
           <p className="mt-4 text-center text-gray-600">
             Don't have an account?{" "}
             <Link to="/auth/register" className="text-blue-500 hover:underline">

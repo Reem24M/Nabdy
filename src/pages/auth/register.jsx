@@ -117,9 +117,15 @@ export default function Register() {
   }[role];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-6">
+   <div
+        className="min-h-screen flex items-center justify-center p-6 
+             bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('${Img}')`
+        }}
+      >
       <div className="w-full max-w-2xl">
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
           {/* Gradient Top Bar */}
           <div className={`h-3 bg-gradient-to-r from-${config.color}-500 to-${config.color}-600`} />
 
