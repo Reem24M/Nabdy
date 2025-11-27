@@ -1,11 +1,22 @@
-/* Landing Page Styles */
 .landing-page {
   overflow-x: hidden;
 }
 
+@keyframes pulse-glow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.2;
+  }
+}
+
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #deefff 0%, #72b9ff 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -20,12 +31,12 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 20px;
-  color: var(--dark-color);
+  color: #212529;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: #6c757d;
+  color: #495057;
   margin-bottom: 30px;
   line-height: 1.6;
 }
@@ -37,16 +48,15 @@
   flex-wrap: wrap;
 }
 
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 500;
-  color: var(--dark-color);
+.hero-features .feature-item i {
+  font-size: 1.3rem;
+  color: #1262eb;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.feature-item i {
-  font-size: 1.2rem;
+.hero-features .feature-item:hover i {
+  color: #1ac8ff;
+  transform: scale(1.2);
 }
 
 .hero-actions {
@@ -62,9 +72,9 @@
 
 .health-illustration {
   font-size: 15rem;
-  color: var(--primary-color);
-  opacity: 0.1;
-  animation: pulse 3s infinite;
+  color: #1262eb;
+  opacity: 0.15;
+  animation: pulse-glow 3s infinite;
 }
 
 /* Features Section */
@@ -75,7 +85,7 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: 600;
-  color: var(--dark-color);
+  color: #212529;
   margin-bottom: 15px;
 }
 
@@ -89,20 +99,20 @@
   background: white;
   padding: 40px 30px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #1262eb, #1ac8ff);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -118,7 +128,7 @@
 .feature-card h5 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--dark-color);
+  color: #212529;
   margin-bottom: 15px;
 }
 
@@ -136,16 +146,16 @@
 
 .feature-list li {
   padding: 5px 0;
-  color: var(--dark-color);
+  color: #212529;
   position: relative;
   padding-left: 20px;
 }
 
 .feature-list li::before {
-  content: '✓';
+  content: "✓";
   position: absolute;
   left: 0;
-  color: var(--success-color);
+  color: #32cd32;
   font-weight: bold;
 }
 
@@ -162,7 +172,7 @@
 .step-number {
   width: 60px;
   height: 60px;
-  background: var(--primary-color);
+  background: #1262eb;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -171,12 +181,17 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 auto 20px;
+  transition: background 0.3s ease;
+}
+
+.step-card:hover .step-number {
+  background: #1ac8ff;
 }
 
 .step-card h5 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--dark-color);
+  color: #212529;
   margin-bottom: 15px;
 }
 
@@ -203,13 +218,19 @@
 
 .security-item i {
   font-size: 2rem;
-  margin-top: 5px;
+  color: #1262eb;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.security-item:hover i {
+  color: #1ac8ff;
+  transform: scale(1.2);
 }
 
 .security-item h6 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--dark-color);
+  color: #212529;
   margin-bottom: 8px;
 }
 
@@ -222,13 +243,15 @@
 .security-illustration {
   text-align: center;
   font-size: 12rem;
-  color: var(--primary-color);
-  opacity: 0.1;
+  color: #1262eb;
+  opacity: 0.15;
+  animation: pulse-glow 3s infinite;
 }
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #1262eb, #1ac8ff);
+  transition: background 0.3s ease;
 }
 
 .cta-section h2 {
@@ -246,20 +269,30 @@
   margin-top: 30px;
 }
 
+.cta-section .btn-light:hover {
+  background: #f0f8ff;
+  color: #1262eb;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section .btn-outline-light:hover {
+  background: #ffffff30;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
   .hero-title {
     font-size: 2.5rem;
   }
-  
   .hero-features {
     gap: 20px;
   }
-  
   .health-illustration {
     font-size: 10rem;
   }
-  
   .security-illustration {
     font-size: 8rem;
   }
@@ -269,43 +302,34 @@
   .hero-title {
     font-size: 2rem;
   }
-  
   .hero-subtitle {
     font-size: 1.1rem;
   }
-  
   .hero-features {
     flex-direction: column;
     gap: 15px;
   }
-  
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
   }
-  
   .hero-actions .btn {
     margin-bottom: 10px;
   }
-  
   .section-title {
     font-size: 2rem;
   }
-  
   .feature-card {
     padding: 30px 20px;
     margin-bottom: 30px;
   }
-  
   .cta-section h2 {
     font-size: 2rem;
   }
-  
   .cta-actions {
     flex-direction: column;
     align-items: stretch;
   }
-  
   .cta-actions .btn {
     margin-bottom: 15px;
   }
@@ -315,39 +339,31 @@
   .hero-title {
     font-size: 1.75rem;
   }
-  
   .hero-subtitle {
     font-size: 1rem;
   }
-  
   .health-illustration {
     font-size: 8rem;
   }
-  
   .feature-card {
     padding: 25px 15px;
   }
-  
   .feature-icon {
     width: 60px;
     height: 60px;
   }
-  
   .feature-icon i {
     font-size: 1.5rem;
   }
-  
   .step-number {
     width: 50px;
     height: 50px;
     font-size: 1.25rem;
   }
-  
   .security-item {
     flex-direction: column;
     text-align: center;
   }
-  
   .security-illustration {
     font-size: 6rem;
   }

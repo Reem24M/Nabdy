@@ -1,17 +1,40 @@
-
 'use client';
 
-import React, { useState } from 'react';
-import { Menu, X, Siren } from 'lucide-react'; // Optional: using lucide icons
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Siren, LogOut } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [role, setRole] = useState('guest');
+  const navigate=useNavigate()
+  useEffect(() => {
+    const storedRole = localStorage.getItem('role') || 'guest';
+    setRole(storedRole);
+  }, []);
 
-  const navLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-    {name: 'Login/Register', href: '/auth/login' },
-  ];
+  const handleLogout = () => {
+    localStorage.setItem('role', 'guest');
+    setRole('guest');
+    setIsOpen(false);
+    navigate('/');
+  };
+
+  // Define nav links dynamically based on role
+  const navLinks =
+    role === 'guest'
+      ? [
+        { name: 'About', href: '/about' },
+        { name: 'Contact', href: '/contact' },
+        { name: 'Login/Register', href: '/auth/login' },
+      ]
+      : role === 'doctor'
+        ? [{ name: 'Doctor Dashboard', href: '/doctor/dashboard' }]
+        : role === 'patient'
+          ? [{ name: 'Patient Dashboard', href: '/patient/dashboard' }]
+          : role === 'lab-doctor'
+            ? [{ name: 'Lab Dashboard', href: '/lab/dashboard' }]
+            : [];
 
   return (
     <>
@@ -27,7 +50,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -37,15 +60,28 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              
+
               {/* Emergency Button */}
-              <a
-                href="/emergency"
-                className="bg-red-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-700 transition shadow-md flex items-center gap-2"
-              >
-                <Siren className="h-5 w-5" />
-                Emergency
-              </a>
+              {(role === 'guest' || role === 'patient') && (
+                <a
+                  href="/emergency"
+                  className=" flex justify-center bg-red-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-700 transition shadow-md flex items-center gap-2"
+                >
+                  <Siren className="h-5 w-5" />
+                  Emergency
+                </a>
+              )}
+
+              {/* Logout Button */}
+              {role !== 'guest' && (
+                <button
+                  onClick={handleLogout}
+                  className="bg-blue-600 text-white px-6 py-2.5 !rounded-full font-bold hover:bg-blue-700 transition shadow-md flex items-center gap-2"
+                >
+                  <LogOut className="h-5 w-5" />
+                  Logout
+                </button>
+              )}
             </div>
 
             {/* Mobile menu button */}
@@ -75,13 +111,27 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <a
-                href="/emergency"
-                className="block px-3 py-3 mt-4 bg-red-600 text-white text-center rounded-full font-bold hover:bg-red-700 transition mx-4"
-                onClick={() => setIsOpen(false)}
-              >
-                Emergency Help
-              </a>
+
+              {(role === 'guest' || role === 'patient') && (
+                <a
+                  href="/emergency"
+                  className="block px-3 py-3 mt-4 bg-red-600 text-white text-center rounded-full font-bold hover:bg-red-700 transition mx-4"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Emergency Help
+                </a>
+              )}
+
+              {/* Logout Button Mobile */}
+              {role !== 'guest' && (
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 bg-blue-200 px-4 py-2 rounded-full hover:bg-gray-300 transition font-medium mx-3 mt-2 w-[calc(100%-1.5rem)] justify-center"
+                >
+                  <LogOut className="h-5 w-5" />
+                  Logout
+                </button>
+              )}
             </div>
           </div>
         )}
