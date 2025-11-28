@@ -16,7 +16,7 @@ const LandingPage = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-      // بعد ما نعمل scroll، نمسح state عشان ما يكررش
+      
       window.history.replaceState({}, document.title);
     }
   }, [location.state]);

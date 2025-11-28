@@ -9,23 +9,35 @@ import {
   HeartPulse,
   Siren,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
+
+  const scrollToSection = (id) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+    } else {
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <footer className="bg-[#0A1A3A] text-white py-12 ">
+    <footer className="bg-[#0A1A3A] text-white py-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
 
         {/* Brand */}
         <div>
-           <div className="flex items-center">
-              <a href="/" className="flex items-center space-x-2">
-                <Siren className="h-8 w-8 text-red-600" />
-                <span className="text-2xl font-bold text-white">Nabdy</span>
-              </a>
-            </div>
+          <div className="flex items-center">
+            <a href="/" className="flex items-center space-x-2">
+              <Siren className="h-8 w-8 text-red-600" />
+              <span className="text-2xl font-bold text-white">Nabdy</span>
+            </a>
+          </div>
           <p className="text-gray-300 leading-relaxed">
             A comprehensive medical platform connecting doctors and patients.
-            Book appointments, get consultations, and manage your health records easily.
+            Manage your health records easily.
           </p>
         </div>
 
@@ -33,10 +45,30 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-3 text-gray-300">
-            <li className="hover:text-white transition">Doctors</li>
-            <li className="hover:text-white transition">About Us</li>
-            <li className="hover:text-white transition">Contact Us</li>
-            <li className="hover:text-white transition">FAQs</li>
+            <li
+              className="hover:text-white transition cursor-pointer"
+              onClick={() => scrollToSection("features")}
+            >
+              Features
+            </li>
+            <li
+              className="hover:text-white transition cursor-pointer"
+              onClick={() => scrollToSection("how-it-works")}
+            >
+              How It Works
+            </li>
+            <li
+              className="hover:text-white transition cursor-pointer"
+              onClick={() => scrollToSection("security")}
+            >
+              Security
+            </li>
+            <li
+              className="hover:text-white transition cursor-pointer"
+              onClick={() => scrollToSection("cta")}
+            >
+              CTA
+            </li>
           </ul>
         </div>
 
