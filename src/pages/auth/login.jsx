@@ -5,11 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { LogIn } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 
-// لو الصورة في public folder
-// const Img = "/bg.jpg";
-
-// لو الصورة داخل src/assets
-import Img from "../../assets/bg.jpg";
+import Img from "../../../public/bg.jpg";
 
 export default function Login() {
   const { login } = useAuth();
