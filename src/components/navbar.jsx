@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Siren, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [role, setRole] = useState('guest');
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+  // const location = useLocation();
+
   useEffect(() => {
     const storedRole = localStorage.getItem('role') || 'guest';
     setRole(storedRole);
@@ -20,21 +20,33 @@ export default function Navbar() {
     navigate('/');
   };
 
-  // Define nav links dynamically based on role
+  // Scroll to section function (works across pages)
+ const scrollToSection = (id) => {
+  if (window.location.pathname !== '/') {
+    
+    navigate('/', { state: { scrollTo: id } });
+  } else {
+    const element = document.getElementById(id);
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false);
+  }
+};
+
   const navLinks =
     role === 'guest'
       ? [
-        { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' },
-        { name: 'Login/Register', href: '/auth/login' },
-      ]
+          { name: 'Features', action: () => scrollToSection('features') },
+          { name: 'How It Works', action: () => scrollToSection('how-it-works') },
+          { name: 'Security', action: () => scrollToSection('security') },
+          { name: 'Login/Register', href: '/auth/login' },
+        ]
       : role === 'doctor'
-        ? [{ name: 'Doctor Dashboard', href: '/doctor/dashboard' }]
-        : role === 'patient'
-          ? [{ name: 'Patient Dashboard', href: '/patient/dashboard' }]
-          : role === 'lab-doctor'
-            ? [{ name: 'Lab Dashboard', href: '/lab/dashboard' }]
-            : [];
+      ? [{ name: 'Doctor Dashboard', href: '/doctor/dashboard' }]
+      : role === 'patient'
+      ? [{ name: 'Patient Dashboard', href: '/patient/dashboard' }]
+      : role === 'lab-doctor'
+      ? [{ name: 'Lab Dashboard', href: '/lab/dashboard' }]
+      : [];
 
   return (
     <>
@@ -51,28 +63,36 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-gray-700 hover:bg-blue-200 px-4 py-2 rounded-2xl font-medium transition duration-200"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.href ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-gray-700 hover:bg-blue-200 px-4 py-2 !rounded-lg font-medium transition duration-200"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <button
+                    key={link.name}
+                    onClick={link.action}
+                    className="text-gray-700 hover:bg-blue-200 px-4 py-2 !rounded-lg font-medium transition duration-200"
+                  >
+                    {link.name}
+                  </button>
+                )
+              )}
 
-              {/* Emergency Button */}
               {(role === 'guest' || role === 'patient') && (
                 <a
                   href="/emergency"
-                  className=" flex justify-center bg-red-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-700 transition shadow-md flex items-center gap-2"
+                  className=" justify-center bg-red-600 text-white px-6 py-2.5 !rounded-full font-bold hover:bg-red-700 transition shadow-md flex items-center gap-2"
                 >
                   <Siren className="h-5 w-5" />
                   Emergency
                 </a>
               )}
 
-              {/* Logout Button */}
               {role !== 'guest' && (
                 <button
                   onClick={handleLogout}
@@ -101,16 +121,26 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden bg-white border-t border-gray-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md font-medium"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.href ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="block px-3 py-2 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <button
+                    key={link.name}
+                    onClick={link.action}
+                    className="block w-full text-left px-3 py-2 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md font-medium"
+                  >
+                    {link.name}
+                  </button>
+                )
+              )}
 
               {(role === 'guest' || role === 'patient') && (
                 <a
@@ -122,7 +152,6 @@ export default function Navbar() {
                 </a>
               )}
 
-              {/* Logout Button Mobile */}
               {role !== 'guest' && (
                 <button
                   onClick={handleLogout}

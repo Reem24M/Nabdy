@@ -85,7 +85,7 @@ export default function Register() {
           <div className="grid md:grid-cols-3 gap-10">
             {[
               { role: "patient", title: "Patient", desc: "Book doctors & manage health", color: "emerald", icon: User },
-              { role: "doctor", title: "Doctor", desc: "Treat patients & grow practice", color: "blue", icon: Stethoscope },
+              { role: "doctor", title: "Doctor", desc: "Treat patients & grow practice", color: "emerald", icon: Stethoscope },
               { role: "labDoctor", title: "Lab Specialist", desc: "Upload reports & results", color: "purple", icon: FlaskConical },
             ].map((item) => (
               <button
