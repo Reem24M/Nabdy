@@ -19,14 +19,12 @@ const FeaturesSection = () => (
             </div>
             <h5>For Patients</h5>
             <p>
-              Access your complete medical history, lab results, prescriptions,
-              and appointments in one secure platform.
+              Access your complete medical history, lab results And prescriptions in one secure platform.
             </p>
             <ul className="feature-list">
               <li>Complete Medical Timeline</li>
               <li>Lab Results & Reports</li>
               <li>Prescription Management</li>
-              <li>Emergency Card</li>
             </ul>
           </div>
         </div>
@@ -38,13 +36,12 @@ const FeaturesSection = () => (
             <h5>For Doctors</h5>
             <p>
               Streamlined patient management with instant access to medical
-              history and seamless communication tools.
+              history
             </p>
             <ul className="feature-list">
               <li>Patient Dashboard</li>
               <li>Medical History Access</li>
-              <li>Lab & Radiology Integration</li>
-              <li>Appointment Scheduling</li>
+             
             </ul>
           </div>
         </div>
@@ -55,14 +52,12 @@ const FeaturesSection = () => (
             </div>
             <h5>For Medical Facilities</h5>
             <p>
-              Integrated lab and radiology systems for efficient workflow and
+              Integrated lab systems for efficient workflow and
               comprehensive patient care.
             </p>
             <ul className="feature-list">
               <li>Lab Management</li>
-              <li>Radiology Reports</li>
               <li>Emergency Protocols</li>
-              <li>Data Analytics</li>
             </ul>
           </div>
         </div>

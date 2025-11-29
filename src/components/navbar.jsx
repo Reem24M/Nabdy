@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, Siren, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [role, setRole] = useState('guest');
   const navigate = useNavigate();
+  const {role,logout} = useAuth();
   // const location = useLocation();
 
-  useEffect(() => {
-    const storedRole = localStorage.getItem('role') || 'guest';
-    setRole(storedRole);
-  }, []);
 
-  const handleLogout = () => {
-    localStorage.setItem('role', 'guest');
-    setRole('guest');
-    setIsOpen(false);
-    navigate('/');
-  };
+
+ const handleLogout = () => {
+  logout();  // من الكونتكست
+  setIsOpen(false);
+  navigate("/");
+};
+
 
   // Scroll to section function (works across pages)
  const scrollToSection = (id) => {

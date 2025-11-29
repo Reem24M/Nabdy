@@ -35,7 +35,7 @@ export default function Footer() {
               <span className="text-2xl font-bold text-white">Nabdy</span>
             </a>
           </div>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-300 pt-6 leading-relaxed">
             A comprehensive medical platform connecting doctors and patients.
             Manage your health records easily.
           </p>

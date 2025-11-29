@@ -112,8 +112,8 @@ export default function Register() {
   // Role-based config
   const config = {
     patient: { color: "emerald", title: "Patient", icon: User },
-    doctor: { color: "blue", title: "Doctor", icon: Stethoscope },
-    labDoctor: { color: "purple", title: "Lab Specialist", icon: FlaskConical },
+    doctor: { color: "emerald", title: "Doctor", icon: Stethoscope },
+    labDoctor: { color: "emerald", title: "Lab Specialist", icon: FlaskConical },
   }[role];
 
   return (
