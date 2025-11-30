@@ -6,7 +6,6 @@ import {
   Facebook,
   Linkedin,
   Instagram,
-  HeartPulse,
   Siren,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -24,8 +23,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0A1A3A] text-white py-12">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-gradient-to-t from-[#08112B] to-[#0A1A3A] text-white py-12 relative overflow-hidden">
+      
+      {/* Overlay for subtle lines */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* يمكنك استبدال هذا بالـ SVG الخاص بالخطوط أو pattern */}
+        <div className="w-full h-full bg-[url('/lines-pattern.svg')] opacity-10 bg-repeat"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
 
         {/* Brand */}
         <div>
@@ -80,7 +86,7 @@ export default function Footer() {
               <Phone size={18} /> +1 (234) 567-890
             </li>
             <li className="flex items-center gap-2">
-              <Mail size={18} /> support@medicare.com
+              <Mail size={18} /> support@nabdy.com
             </li>
             <li className="flex items-start gap-2">
               <MapPin size={18} />
@@ -94,13 +100,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between px-6">
-        <p className="text-gray-400 text-sm">© 2025 MediCare. All Rights Reserved.</p>
-
-        <div className="flex items-center gap-4 mt-4 md:mt-0">
-          <Facebook className="hover:text-blue-400 cursor-pointer" size={20} />
-          <Linkedin className="hover:text-blue-400 cursor-pointer" size={20} />
-          <Instagram className="hover:text-pink-400 cursor-pointer" size={20} />
+      <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-center px-6">
+        <div className="flex flex-col justify-center items-center">
+          <p className="text-gray-400 text-sm">© 2025 Nabdy. All Rights Reserved.</p>
+          <div className="flex items-center gap-4 mt-4 md:mt-0">
+            <Facebook className="hover:text-blue-400 cursor-pointer" size={20} />
+            <Linkedin className="hover:text-blue-400 cursor-pointer" size={20} />
+            <Instagram className="hover:text-pink-400 cursor-pointer" size={20} />
+          </div>
         </div>
       </div>
     </footer>

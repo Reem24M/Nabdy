@@ -33,7 +33,7 @@ export default function RoutesApp() {
         {/* Patient routes */}
         <Route path='/patient/dashboard' element={<PatientDashboard/>} />
         {/* lab routes */}
-        <Route  path='/lab/dashboard' element={<LabDashboard/>} />
+        <Route  path='/lab-doctor/dashboard' element={<LabDashboard/>} />
         {/* emergency routes */}
         <Route path='/emergency' element={<Emergency />} />
       </Routes>

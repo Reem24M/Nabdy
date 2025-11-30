@@ -38,71 +38,107 @@ export default function Login() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center bg-no-repeat"
+      className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center bg-no-repeat relative overflow-hidden"
       style={{
-        backgroundImage: `url(${Img})`,
+        backgroundColor: '#0A1A3A',
       }}
     >
-      <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-6">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6' }}></div>
+        <div className="absolute top-1/3 right-20 w-16 h-16 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-1/3 w-24 h-24 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-12 h-12 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '1.5s' }}></div>
+      </div>
 
+      <div className="w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 relative z-10">
+        
         {/* Icon + Title */}
-        <div className="flex flex-col items-center mb-6">
-          <div className="p-3 bg-blue-100 rounded-full mb-3">
-            <LogIn className="w-8 h-8 text-blue-600" />
+        <div className="flex flex-col items-center mb-8">
+          <div className="p-3 rounded-full mb-4" style={{ backgroundColor: 'rgba(22, 156, 246, 0.1)' }}>
+            <LogIn className="w-8 h-8" style={{ color: '#169CF6' }} />
           </div>
-          <h2 className="text-2xl font-bold text-gray-800">Login to Your Account</h2>
+          <h2 className="text-xl font-bold" style={{ color: '#0A1A3A' }}>Login to Your Account</h2>
         </div>
 
         {/* FORM */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
           {/* Email */}
           <div>
-            <label className="block text-gray-700 font-medium mb-1">Email</label>
+            <label className="block font-medium mb-2" style={{ color: '#0A1A3A' }}>Email</label>
             <input
               type="email"
               {...register("email")}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 ${
                 errors.email
                   ? "border-red-500 focus:ring-red-400"
                   : "border-gray-300 focus:ring-blue-400"
               }`}
+              style={{ 
+                borderColor: errors.email ? '#EF4444' : '#D1D5DB',
+                focusBorderColor: '#169CF6'
+              }}
             />
             {errors.email && (
-              <p className="text-red-500 text-sm">{errors.email.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
             )}
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-gray-700 font-medium mb-1">Password</label>
+            <label className="block font-medium mb-2" style={{ color: '#0A1A3A' }}>Password</label>
             <input
               type="password"
               {...register("password")}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 ${
                 errors.password
                   ? "border-red-500 focus:ring-red-400"
                   : "border-gray-300 focus:ring-blue-400"
               }`}
+              style={{ 
+                borderColor: errors.password ? '#EF4444' : '#D1D5DB',
+                focusBorderColor: '#169CF6'
+              }}
             />
             {errors.password && (
-              <p className="text-red-500 text-sm">{errors.password.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
             )}
           </div>
 
-          <p className="text-sm text-right text-blue-500 hover:underline">
-            <Link to="/auth/forgetpassword">Forgot Password?</Link>
+          <p className="text-sm text-right">
+            <Link 
+              to="/auth/forgetpassword" 
+              className="hover:underline transition-all duration-300"
+              style={{ color: '#169CF6' }}
+            >
+              Forgot Password?
+            </Link>
           </p>
 
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg"
+            className="w-full py-2 font-semibold !rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+            style={{ 
+              backgroundColor: '#169CF6',
+              color: 'white'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#1285D6';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#169CF6';
+            }}
           >
             Login
           </button>
 
-          <p className="mt-4 text-center text-gray-600">
-            Don’t have an account?{" "}
-            <Link to="/auth/register" className="text-blue-500 hover:underline">
+          <p className="mt-6 text-center" style={{ color: '#0A1A3A' }}>
+            Don't have an account?{" "}
+            <Link 
+              to="/auth/register" 
+              className="font-semibold hover:underline transition-all duration-300"
+              style={{ color: '#169CF6' }}
+            >
               Register
             </Link>
           </p>

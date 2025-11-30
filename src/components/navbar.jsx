@@ -52,12 +52,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo / Brand */}
-            <div className="flex items-center">
-              <a href="/" className="flex items-center space-x-2">
-                <Siren className="h-8 w-8 text-red-600" />
-                <span className="text-2xl font-bold text-gray-900">Nabdy</span>
-              </a>
-            </div>
+              <div className="flex items-center">
+                <a href="/" className="flex items-center space-x-2">
+                  <Siren className="h-8 w-8 text-red-600" />
+                  <span className="text-2xl font-bold text-gray-900">Nabdy</span>
+                </a>
+              </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
@@ -81,7 +81,7 @@ export default function Navbar() {
                 )
               )}
 
-              {(role === 'guest' || role === 'patient') && (
+              {/* {(role === 'guest' || role === 'patient') && (
                 <a
                   href="/emergency"
                   className=" justify-center bg-red-600 text-white px-6 py-2.5 !rounded-full font-bold hover:bg-red-700 transition shadow-md flex items-center gap-2"
@@ -89,7 +89,7 @@ export default function Navbar() {
                   <Siren className="h-5 w-5" />
                   Emergency
                 </a>
-              )}
+              )} */}
 
               {role !== 'guest' && (
                 <button
