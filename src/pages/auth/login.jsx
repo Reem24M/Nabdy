@@ -44,12 +44,12 @@ export default function Login() {
       }}
     >
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6' }}></div>
         <div className="absolute top-1/3 right-20 w-16 h-16 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '1s' }}></div>
         <div className="absolute bottom-32 left-1/3 w-24 h-24 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '2s' }}></div>
         <div className="absolute top-1/2 right-1/4 w-12 h-12 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '1.5s' }}></div>
-      </div>
+      </div> */}
 
       <div className="w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 relative z-10">
         
