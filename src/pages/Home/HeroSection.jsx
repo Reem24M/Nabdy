@@ -64,7 +64,7 @@ const HeroSection = () => {
        <div className="flex flex-col sm:flex-row gap-4">
       <button
         onClick={handleGetStarted}
-        className="!no-underline inline-flex items-center justify-center px-8 py-4 text-white font-bold rounded-full transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl animate-fade-in-up relative overflow-hidden group"
+        className="!no-underline inline-flex items-center justify-center p-3 text-white font-bold !rounded-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-100 hover:shadow-2xl animate-fade-in-up relative overflow-hidden group"
         style={{ backgroundColor: '#169CF6', animationDelay: '1s' }}
       >
         <span className="relative z-10">Get Started</span>

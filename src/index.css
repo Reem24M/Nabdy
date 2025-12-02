@@ -7,3 +7,6 @@
 .MainText {
   @apply text-[#1262EB] font-bold text-2xl tracking-wide leading-relaxed;
 }
+body {
+  @apply bg-[#0A1A3A] text-white;
+}

@@ -52,7 +52,7 @@ const CTASection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/auth/login"
-                className="inline-flex items-center justify-center p-3 text-white font-bold rounded-full transition-all duration-500 transform hover:-translate-y-2 hover:scale-100 hover:shadow-2xl !no-underline animate-fade-in-up relative overflow-hidden group "
+                className="inline-flex items-center justify-center p-3 text-white font-bold !rounded-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-100 hover:shadow-2xl !no-underline animate-fade-in-up relative overflow-hidden group "
                 style={{ backgroundColor: '#169CF6', animationDelay: '0.8s' }}
               >
                 <span className="relative z-10">Get Started</span>
