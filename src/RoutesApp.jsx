@@ -15,7 +15,7 @@ import PatientDetails from './pages/labDoctors/PatientDetails.jsx'
 import LabDoctorProfile from './pages/labDoctors/LabDoctorProfile.jsx'
 import SettingsPage from './pages/SettingsPage.jsx'
 import DoctorProfile from './pages/Doctor/pages/doctorProfile.jsx'
-import PatientProfile from './pages/Patient/pages/patientprofile.jsx'
+// import PatientProfile from './pages/Patient/pages/patientprofile.jsx'
 export default function RoutesApp() {
   return (
     <div className='bg-gray-200 min-h-lvh '>
@@ -38,7 +38,7 @@ export default function RoutesApp() {
         <Route path='/doctor/profile' element={<DoctorProfile />} />
         {/* Patient routes */}
         <Route path='/patient/dashboard' element={<PatientDashboard />} />
-        <Route path='/patient/profile' element={<PatientProfile />} />
+        {/* <Route path='/patient/profile' element={<PatientProfile />} /> */}
         {/* lab routes */}
         <Route path='/lab/dashboard' element={<LabDashboard />} />
         <Route path="/patient/:id" element={<PatientDetails />} />
