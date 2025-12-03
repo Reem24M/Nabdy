@@ -1,6 +1,6 @@
 import React from "react";
 import { Activity, Calendar, AlertCircle } from "lucide-react";
-import StatusBadge from "../components/StatusBadge";
+import StatusBadge from "../../../Doctor/components/StatusBadge";
 
 const OverviewContent = ({ patient }) => {
   if (!patient) return null;
@@ -14,7 +14,7 @@ const OverviewContent = ({ patient }) => {
             Health Overview
           </h3>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {patient.overviewMetrics.map((metric) => (
             <div key={metric.id} className="p-3 !rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
@@ -41,7 +41,7 @@ const OverviewContent = ({ patient }) => {
             <Calendar className="w-5 h-5" style={{ color: '#169CF6' }} />
             Upcoming Appointments
           </h3>
-          
+
           {patient.appointments.slice(0, 2).map((appointment) => (
             <div key={appointment.id} className="p-3 !rounded-lg mb-2" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
               <div className="flex items-center justify-between mb-2">
@@ -59,11 +59,11 @@ const OverviewContent = ({ patient }) => {
             <AlertCircle className="w-5 h-5" style={{ color: '#169CF6' }} />
             Chronic Conditions
           </h3>
-          
+
           <div className="flex flex-wrap gap-2">
             {patient.conditions.map((condition, index) => (
               <span key={index} className="px-3 py-1.5 !rounded-full text-xs font-medium"
-                    style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)', color: '#169CF6' }}>
+                style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)', color: '#169CF6' }}>
                 {condition}
               </span>
             ))}

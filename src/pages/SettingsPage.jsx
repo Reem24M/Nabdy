@@ -75,8 +75,7 @@ export default function SettingsPage() {
     { id: "profile", label: "Profile", icon: <User className="h-5 w-5" />, color: "#169CF6" },
     { id: "security", label: "Security", icon: <Lock className="h-5 w-5" />, color: "#EF4444" },
     { id: "preferences", label: "Preferences", icon: <Palette className="h-5 w-5" />, color: "#8B5CF6" },
-    { id: "notifications", label: "Notifications", icon: <Bell className="h-5 w-5" />, color: "#F59E0B" },
-    { id: "billing", label: "Billing", icon: <CreditCard className="h-5 w-5" />, color: "#10B981" },
+  
     { id: "data", label: "Data & Privacy", icon: <Shield className="h-5 w-5" />, color: "#3B82F6" },
   ];
 

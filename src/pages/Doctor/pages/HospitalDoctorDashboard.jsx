@@ -5,14 +5,14 @@ import StatsCard from "../components/StatsCard";
 import StatusBadge from "../components/StatusBadge";
 import PatientSummaryCard from "../components/PatientSummaryCard";
 import SearchForm from "../components/SearchForm";
-import OverviewContent from "../sections/OverviewContent";
-import MedicalHistoryContent from "../sections/MedicalHistoryContent";
-import LabResultsContent from "../sections/LabResultsContent";
-import PrescriptionsContent from "../sections/PrescriptionsContent";
-import AppointmentsContent from "../sections/AppointmentsContent";
-import NotesContent from "../sections/NotesContent";
-import RecentPatientsContent from "../sections/RecentPatientsContent";
-import SearchPatientContent from "../sections/SearchPatientContent";
+import OverviewContent from "../../Patient/components/sections/OverviewContent";
+import MedicalHistoryContent from "../../Patient/components/sections/MedicalHistoryContent";
+import LabResultsContent from "../../Patient/components/sections/LabResultsContent";
+import PrescriptionsContent from "../../Patient/components/sections/PrescriptionsContent";
+import AppointmentsContent from "../../Patient/components/sections/AppointmentsContent";
+import NotesContent from "../../Patient/components/sections/NotesContent";
+import RecentPatientsContent from "../../Patient/components/sections/RecentPatientsContent";
+import SearchPatientContent from "../../Patient/components/sections/SearchPatientContent";
 import { doctorData } from "../data/doctorData";
 
 const HospitalDoctorDashboard = () => {
@@ -184,8 +184,8 @@ const HospitalDoctorDashboard = () => {
                 key={index}
                 onClick={() => setMainTabIndex(index)}
                 className={`px-4 py-2.5 !rounded-lg font-medium text-sm transition-all duration-300 ${mainTabIndex === index
-                    ? 'text-white'
-                    : 'text-white/60 hover:text-white'
+                  ? 'text-white'
+                  : 'text-white/60 hover:text-white'
                   }`}
                 style={{
                   backgroundColor: mainTabIndex === index ? '#169CF6' : 'transparent'

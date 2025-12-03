@@ -1,5 +1,5 @@
 import React from "react";
-import StatusBadge from "../components/StatusBadge";
+import StatusBadge from "../../../Doctor/components/StatusBadge";
 
 const LabResultsContent = ({ patient }) => {
   if (!patient) return null;
@@ -41,16 +41,15 @@ const LabResultsContent = ({ patient }) => {
                       <span className="text-white/80 text-sm">{test.normal}</span>
                     </td>
                     <td className="py-3 text-left">
-                      <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs ${
-                        test.status === "normal" 
-                          ? "text-green-400 bg-green-400/10" 
+                      <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs ${test.status === "normal"
+                          ? "text-green-400 bg-green-400/10"
                           : test.status === "warning"
-                          ? "text-yellow-400 bg-yellow-400/10"
-                          : "text-red-400 bg-red-400/10"
-                      }`}>
+                            ? "text-yellow-400 bg-yellow-400/10"
+                            : "text-red-400 bg-red-400/10"
+                        }`}>
                         {test.status === "normal" ? "✓ Normal" :
-                         test.status === "warning" ? "⚠ Warning" : 
-                         "✗ Critical"}
+                          test.status === "warning" ? "⚠ Warning" :
+                            "✗ Critical"}
                       </span>
                     </td>
                   </tr>

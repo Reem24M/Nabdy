@@ -1,6 +1,6 @@
 import React from "react";
 import { Calendar } from "lucide-react";
-import StatusBadge from "../components/StatusBadge";
+import StatusBadge from "../../../Doctor/components/StatusBadge";
 
 const AppointmentsContent = ({ patient }) => {
   if (!patient) return null;
@@ -20,12 +20,12 @@ const AppointmentsContent = ({ patient }) => {
               <div className="flex items-center gap-2">
                 <span className="text-white/60 text-sm">{appointment.date}</span>
                 <span className="px-2.5 py-1 !rounded-full text-xs font-medium"
-                      style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)', color: '#169CF6' }}>
+                  style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)', color: '#169CF6' }}>
                   {appointment.time}
                 </span>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-white/80 text-sm">{appointment.type}</span>
               <span className="text-white/60 text-sm">{appointment.location}</span>

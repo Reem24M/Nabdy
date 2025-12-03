@@ -1,6 +1,6 @@
 import React from "react";
 import { Pill } from "lucide-react";
-import StatusBadge from "../components/StatusBadge";
+import StatusBadge from "../../../Doctor/components/StatusBadge";
 
 const PrescriptionsContent = ({ patient }) => {
   if (!patient) return null;
@@ -19,10 +19,10 @@ const PrescriptionsContent = ({ patient }) => {
               <h4 className="text-white font-medium">{prescription.medication}</h4>
               <span className="text-white/60 text-sm">Until: {new Date(prescription.endDate).toLocaleDateString()}</span>
             </div>
-            
+
             <div className="flex flex-wrap items-center gap-3">
               <span className="px-2.5 py-1 rounded-full text-xs font-medium"
-                    style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)', color: '#169CF6' }}>
+                style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)', color: '#169CF6' }}>
                 {prescription.dosage}
               </span>
               <span className="text-white/80 text-sm">{prescription.frequency}</span>

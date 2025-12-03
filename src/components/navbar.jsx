@@ -53,7 +53,7 @@ export default function Navbar() {
 
   const getUserName = () => {
     switch (role) {
-      case 'patient': return 'Omar Patient';
+      case 'patient': return 'Omar Ahmed';
       case 'doctor': return 'Dr. Mohammed';
       case 'lab-doctor': return 'Dr. Anas';
       default: return 'Guest User';

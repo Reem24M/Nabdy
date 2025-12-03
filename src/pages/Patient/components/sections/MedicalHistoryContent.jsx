@@ -1,6 +1,6 @@
 import React from "react";
 import { History } from "lucide-react";
-import StatusBadge from "../components/StatusBadge";
+import StatusBadge from "../../../Doctor/components/StatusBadge";
 
 const MedicalHistoryContent = ({ patient }) => {
   if (!patient) return null;
@@ -17,12 +17,12 @@ const MedicalHistoryContent = ({ patient }) => {
           <div key={item.id} className="flex gap-3">
             <div className="flex flex-col items-center">
               <div className="w-8 h-8 !rounded-full flex items-center justify-center"
-                   style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)' }}>
+                style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)' }}>
                 <div className="w-3 h-3" style={{ color: '#169CF6' }} />
               </div>
               <div className="flex-1 w-0.5 my-1" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }} />
             </div>
-            
+
             <div className="flex-1 pb-4">
               <div className="p-3 !rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
                 <div className="flex items-center justify-between mb-2">

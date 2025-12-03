@@ -1,9 +1,9 @@
 import React from "react";
 import { Search, AlertCircle } from "lucide-react";
-import PatientSummaryCard from "../components/PatientSummaryCard";
-import SearchForm from "../components/SearchForm";
+import PatientSummaryCard from "../../../Doctor/components/PatientSummaryCard";
+import SearchForm from "../../../Doctor/components/SearchForm";
 
-const SearchPatientContent = ({ 
+const SearchPatientContent = ({
   selectedPatient,
   searchQuery,
   searchError,
@@ -47,12 +47,11 @@ const SearchPatientContent = ({
                   <button
                     key={index}
                     onClick={() => onTabChange(index)}
-                    className={`px-4 py-2 !rounded-lg font-medium text-sm transition-all duration-300 ${
-                      activeTab === index
+                    className={`px-4 py-2 !rounded-lg font-medium text-sm transition-all duration-300 ${activeTab === index
                         ? 'text-white'
                         : 'text-white/60 hover:text-white'
-                    }`}
-                    style={{ 
+                      }`}
+                    style={{
                       backgroundColor: activeTab === index ? '#169CF6' : 'transparent'
                     }}
                   >
@@ -60,7 +59,7 @@ const SearchPatientContent = ({
                   </button>
                 ))}
               </div>
-              
+
               <div>
                 {patientTabs[activeTab]?.content}
               </div>
