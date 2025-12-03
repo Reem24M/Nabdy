@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/home'
-import DoctorDashboard from './pages/Doctor/HospitalDoctorDashboard'
+import DoctorDashboard from './pages/Doctor/pages/HospitalDoctorDashboard.jsx'
 import PatientDashboard from './pages/Patient/PatientDashboard'
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
@@ -14,6 +14,7 @@ import Emergency from './pages/EmergencyPage.jsx'
 import PatientDetails from './pages/labDoctors/PatientDetails.jsx'
 import LabDoctorProfile from './pages/labDoctors/LabDoctorProfile.jsx'
 import SettingsPage from './pages/SettingsPage.jsx'
+import DoctorProfile from './pages/Doctor/doctorProfile.jsx'
 export default function RoutesApp() {
   return (
     <div className='bg-gray-200 min-h-lvh '>
@@ -33,6 +34,7 @@ export default function RoutesApp() {
         <Route path='/contact' element={<Contactus />} />
         {/* Doctor routes */}
         <Route path='/doctor/dashboard' element={<DoctorDashboard />} />
+        <Route path='/doctor/profile' element={<DoctorProfile />} />
         {/* Patient routes */}
         <Route path='/patient/dashboard' element={<PatientDashboard />} />
         {/* lab routes */}

@@ -57,7 +57,7 @@ export const patientRecords = [
     status: "Active",
     contactNumber: "+20 101 987 6543",
     emergencyContact: { name: "Hassan Ali", relation: "Husband", phone: "+20 101 321 7890" },
-    conditions: ["Asthma", "Allergies"],
+    conditions: ["Asthma"],
     overviewMetrics: [
       { id: "resp", label: "Peak Flow", value: "420 L/min", statusLabel: "Stable", statusVariant: "success", icon: Activity },
       { id: "oxygen", label: "Blood Oxygen", value: "97%", statusLabel: "Normal", statusVariant: "success", icon: Droplets }
@@ -76,7 +76,7 @@ export const patientRecords = [
       { id: 1, medication: "Combination Inhaler", dosage: "2 puffs", frequency: "Twice daily", endDate: "2024-04-02", status: "active" }
     ],
     appointments: [
-      { id: 1, date: "2024-02-18", time: "09:30 AM", doctor: "Dr. Sarah Ahmed", type: "Follow-up", status: "scheduled", location: "Cairo Medical Center" },
+      { id: 1, date: "2024-02-18", time: "09:30 AM", doctor: "Dr. omar Ahmed", type: "Follow-up", status: "scheduled", location: "Cairo Medical Center" },
       { id: 2, date: "2024-03-22", time: "01:00 PM", doctor: "Dr. Ayman Lotfy", type: "Allergy Specialist", status: "scheduled", location: "Allergy Clinic" }
     ],
     notes: [

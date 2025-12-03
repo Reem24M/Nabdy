@@ -28,22 +28,6 @@ export default function LabResultsSection({ labResults, onOpenModal }) {
     }, 0);
   };
 
-  const exportResults = () => {
-    const data = {
-      exportDate: new Date().toISOString(),
-      totalTests: labResults.length,
-      totalResults: labResults.reduce((sum, test) => sum + test.results.length, 0),
-      results: labResults
-    };
-    
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `lab-results-${new Date().toISOString().split('T')[0]}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
 
   return (
     <div className="rounded-2xl mt-6 text-white" style={{ backgroundColor: '#0F234A' }}>
@@ -63,18 +47,7 @@ export default function LabResultsSection({ labResults, onOpenModal }) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2">
-            <button
-              onClick={exportResults}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 text-sm"
-              style={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                color: 'white',
-                border: '1px solid rgba(255, 255, 255, 0.2)'
-              }}
-            >
-              <Download className="w-3.5 h-3.5" />
-              Export
-            </button>
+          
             
             <button
               onClick={onOpenModal}
@@ -295,7 +268,7 @@ export default function LabResultsSection({ labResults, onOpenModal }) {
                             <th className="pb-2 font-medium">Sub-test</th>
                             <th className="pb-2 font-medium">Value</th>
                             <th className="pb-2 font-medium">Normal Range</th>
-                            <th className="pb-2 font-medium text-right">Status</th>
+                            <th className="pb-2 font-medium text-left">Status</th>
                           </tr>
                         </thead>
                         <tbody>
