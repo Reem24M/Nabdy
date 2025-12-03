@@ -55,7 +55,7 @@ export default function Navbar() {
     switch (role) {
       case 'patient': return 'Omar Ahmed';
       case 'doctor': return 'Dr. Mohammed';
-      case 'lab-doctor': return 'Dr. Anas';
+      case 'labDoctor': return 'Dr. Anas';
       default: return 'Guest User';
     }
   };

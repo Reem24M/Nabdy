@@ -294,7 +294,7 @@ export default function LabResultsSection({ labResults, onOpenModal }) {
                               <td className="py-2">
                                 <span className="text-white/80 text-sm">{res.normal}</span>
                               </td>
-                              <td className="py-2 text-right">
+                              <td className="py-2 text-left">
                                 <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${
                                   res.status === "normal" 
                                     ? "text-green-400 bg-green-400/10" 

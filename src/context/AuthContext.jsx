@@ -10,6 +10,12 @@ export function AuthProvider({ children }) {
     setRole(storedRole);
   }, []);
 
+   const signup = (newRole, userData) => {
+     localStorage.setItem("role", newRole);
+     console.log("Signup Data:", userData);
+    setRole(newRole);
+  };
+
   const login = (newRole) => {
     localStorage.setItem("role", newRole);
     setRole(newRole);
@@ -21,7 +27,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ role, login, logout }}>
+    <AuthContext.Provider value={{ role, login, logout, signup }}>
       {children}
     </AuthContext.Provider>
   );

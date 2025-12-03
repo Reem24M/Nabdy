@@ -30,7 +30,7 @@ export default function Login() {
   const onSubmit = (data) => {
     if (data.email === "omar@gmail.com"){ login("patient"); navigate(`/patient/dashboard`); return;}
     else if (data.email === "mohammed@gmail.com") { login("doctor"); navigate(`/doctor/dashboard`); return;}
-    else if (data.email === "anas@gmail.com") { login("lab-doctor"); navigate(`/lab/dashboard`); return;}
+    else if (data.email === "anas@gmail.com") { login("labDoctor"); navigate(`/labDoctor/dashboard`); return;}
     else login("guest");
 
     

@@ -4,4 +4,5 @@ export const AuthContext = createContext({
   role: "guest",
   login: () => {},
   logout: () => {},
+  signup:()=>{}
 });

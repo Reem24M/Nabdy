@@ -2,17 +2,17 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   User,
   Stethoscope,
   FlaskConical,
   ArrowLeft,
-  CheckCircle2,
   AlertCircle
 } from "lucide-react";
+import { useAuth } from "../../context/AuthContext"
 
-// Zod Schemas (same validation)
+// Zod Schemas
 const baseSchema = z.object({
   username: z.string().min(3, "Username must be at least 3 characters"),
   firstname: z.string().min(2, "First name is required"),
@@ -23,7 +23,7 @@ const baseSchema = z.object({
 
 const patientSchema = baseSchema.extend({
   age: z.string().min(1, "Age is required").regex(/^\d+$/, "Must be a number"),
-  nationalId:z.string().min(4, "ID number is required"),
+  nationalId: z.string().min(4, "ID number is required"),
   gender: z.enum(["male", "female", "other"], { message: "Please select gender" }),
 });
 
@@ -39,8 +39,9 @@ const labDoctorSchema = baseSchema.extend({
 
 export default function Register() {
   const [role, setRole] = useState(null); 
+  const { signup, login } = useAuth();
+  const navigate = useNavigate();
 
-  
   const schema = role === "patient" ? patientSchema :
     role === "doctor" ? doctorSchema :
       role === "labDoctor" ? labDoctorSchema : baseSchema;
@@ -49,40 +50,25 @@ export default function Register() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset,
+    
   } = useForm({
     resolver: zodResolver(schema),
   });
 
   const onSubmit = (data) => {
-    console.log("Role:", role);
-    console.log("Data:", data);
-
-    // Simulate API call
-    return new Promise((resolve) => setTimeout(resolve, 2000)).then(() => {
-      alert("Registration successful!");
-      reset();
-      setRole(role);
-    });
+    if (!role) return;
+    const finalData = { ...data, role };
+    signup(role,finalData);
+    
+    localStorage.setItem("role", role); 
+    navigate(`/${role}/dashboard`);
+    return;
   };
 
-  // Role Selection Screen
+ 
   if (!role) {
     return (
-      <div
-        className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
-        style={{
-          backgroundColor: '#0A1A3A'
-        }}
-      >
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6' }}></div>
-          <div className="absolute top-1/3 right-20 w-16 h-16 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '1s' }}></div>
-          <div className="absolute bottom-32 left-1/3 w-24 h-24 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/4 w-12 h-12 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '1.5s' }}></div>
-        </div>
-
+      <div className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden" style={{ backgroundColor: '#0A1A3A' }}>
         <div className="w-full max-w-5xl relative z-10">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-4" style={{ color: '#169CF6' }}>Welcome to Nabdy</h1>
@@ -98,7 +84,7 @@ export default function Register() {
               <button
                 key={item.role}
                 onClick={() => setRole(item.role)}
-                className="group bg-[#11294B]  rounded-3xl shadow-2xl p-10 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border-2 border-transparent hover:border-blue-300"
+                className="group bg-[#11294B] rounded-3xl shadow-2xl p-10 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border-2 border-transparent hover:border-blue-300"
               >
                 <div className="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center group-hover:scale-110 transition" style={{ backgroundColor: 'rgba(22, 156, 246, 0.1)' }}>
                   <item.icon className="w-12 h-12" style={{ color: '#169CF6' }} />
@@ -124,26 +110,11 @@ export default function Register() {
   }[role];
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
-      style={{
-        backgroundColor: '#0A1A3A'
-      }}
-    >
-      {/* Animated Background Elements */}
-      {/* <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6' }}></div>
-        <div className="absolute top-1/3 right-20 w-16 h-16 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '1s' }}></div>
-        <div className="absolute bottom-32 left-1/3 w-24 h-24 rounded-full opacity-5 animate-pulse" style={{ backgroundColor: '#169CF6', animationDelay: '2s' }}></div>
-      </div> */}
-
+    <div className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden" style={{ backgroundColor: '#0A1A3A' }}>
       <div className="w-full max-w-2xl relative z-10">
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          {/* Top Bar */}
           <div className="h-3" style={{ backgroundColor: '#169CF6' }} />
-
           <div className="p-10">
-            {/* Back Button */}
             <button
               onClick={() => setRole(null)}
               className="flex items-center gap-2 mb-8 transition-all duration-300 hover:underline"
@@ -153,7 +124,6 @@ export default function Register() {
               Change Role
             </button>
 
-            {/* Header */}
             <div className="text-center mb-3">
               <div className="inline-flex rounded-3xl p-4 mb-3" style={{ backgroundColor: 'rgba(22, 156, 246, 0.1)' }}>
                 <config.icon className="w-8 h-8" style={{ color: '#169CF6' }} />
@@ -220,19 +190,14 @@ export default function Register() {
                 </>
               )}
 
-              {/* Submit Button */}
               <div className="flex justify-center">
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full h-11 px-6 text-sm font-semibold mb-4 text-white !rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl disabled:opacity-70"
                   style={{ backgroundColor: '#169CF6' }}
-                  onMouseEnter={(e) => {
-                    if (!isSubmitting) e.target.style.backgroundColor = '#1285D6';
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSubmitting) e.target.style.backgroundColor = '#169CF6';
-                  }}
+                  onMouseEnter={(e) => { if (!isSubmitting) e.target.style.backgroundColor = '#1285D6'; }}
+                  onMouseLeave={(e) => { if (!isSubmitting) e.target.style.backgroundColor = '#169CF6'; }}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
