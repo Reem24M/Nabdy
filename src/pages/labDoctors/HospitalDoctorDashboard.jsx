@@ -5,15 +5,7 @@ import { patientRecords } from "../../data/labDoctorData/patientRecords";
 import DoctorHeader from "../../components/DoctorHeader";
 import PatientSearch from "../../components/PatientSearch";
 
-import RecentPatientCard from "../../components/RecentPatientCard";
-import PatientTabs from "../../components/PatientTabs";
-import LabResultsContent from "../../components/LabResultsContent";
-import OverviewContent from "../../components/OverviewContent";
-import NotesContent from "../../components/NotesContent";
-
-// IMPORT ICONS ❗❗
 import { Users, Calendar, FileText, Circle } from "lucide-react";
-
 
 // ================= ICON COMPONENT =================
 const MyIcon = ({ name, size = 28, className = "text-[#169CF6]" }) => {
@@ -31,24 +23,21 @@ const MyIcon = ({ name, size = 28, className = "text-[#169CF6]" }) => {
   }
 };
 
-
 // ================= STATS CARD =================
 const StatsCardWithIcon = ({ title, value, icon }) => (
   <div className="
       flex items-center gap-4 p-4 rounded-2xl 
-      bg-[#0A1A3A] shadow-md border border-[#169CF6]/20">
+      bg-[#0A1A3A] shadow-md">
     <div className="w-14 h-14 rounded-xl bg-[#169CF6]/10 flex items-center justify-center">
       <MyIcon name={icon} size={30} />
     </div>
 
     <div>
-      <div className="text-sm text-[#169CF6]/70">{title}</div>
+      <div className="text-sm text-white/70">{title}</div>
       <div className="text-xl font-semibold text-white">{value}</div>
     </div>
   </div>
 );
-
-
 
 // ================= MAIN DASHBOARD =================
 export default function HospitalDoctorDashboard() {
@@ -83,10 +72,9 @@ export default function HospitalDoctorDashboard() {
     }
   };
 
-
   return (
     <div className="min-h-screen bg-[#0A1A3A] text-white antialiased">
-      <div className="max-w-[1200px] mx-auto px-6 py-8">
+      <div className="max-w-full mx-auto px-6 py-8">
 
         {/* DOCTOR HEADER */}
         <DoctorHeader doctor={doctorData} />
@@ -103,10 +91,10 @@ export default function HospitalDoctorDashboard() {
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
 
           {/* LEFT COLUMN */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-12 space-y-6">
 
             {/* SEARCH BOX */}
-            <div className="bg-[#0A1A3A] rounded-3xl p-6 shadow-md border border-[#169CF6]/30">
+            <div className="bg-[#0A1A3A] rounded-3xl p-6 shadow-md">
               <PatientSearch
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
@@ -117,7 +105,7 @@ export default function HospitalDoctorDashboard() {
             </div>
 
             {/* PATIENT TABLE */}
-            <div className="bg-[#0A1A3A] rounded-3xl p-4 shadow-md border border-[#169CF6]/20">
+            <div className="bg-[#0A1A3A] rounded-3xl p-4 shadow-md">
               <h3 className="text-lg font-semibold text-[#169CF6] mb-4">All Patients</h3>
 
               <div className="overflow-x-auto">
@@ -164,42 +152,6 @@ export default function HospitalDoctorDashboard() {
                   </tbody>
 
                 </table>
-              </div>
-            </div>
-
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <div className="space-y-6">
-
-            {/* PROMO CARD */}
-            <div className="relative rounded-3xl p-8 bg-[#0A1A3A] shadow-md border border-[#169CF6]/40">
-              <div className="absolute -left-4 -top-4 w-12 h-12 rounded-full bg-[#169CF6] flex items-center justify-center text-white font-semibold shadow">
-                ✓
-              </div>
-
-              <div className="flex flex-col items-center justify-center h-full py-8">
-                <i className="fas fa-heartbeat text-7xl mb-4 text-[#169CF6]"></i>
-
-                <h3 className="text-2xl font-semibold text-[#169CF6]">Your Health, Connected</h3>
-                <p className="text-[#169CF6]/70 mt-2 text-center">
-                  Secure digital records accessible anytime, anywhere
-                </p>
-
-                <button className="mt-6 px-6 py-2 rounded-full bg-[#169CF6] text-black font-semibold shadow-md">
-                  Get Started
-                </button>
-              </div>
-            </div>
-
-            {/* SMALL CARDS */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-2xl bg-[#0A1A3A] border border-[#169CF6]/20 text-[#169CF6]">
-                <h4 className="text-sm">Emergency Contact</h4>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#0A1A3A] border border-[#169CF6]/20 text-[#169CF6]">
-                <h4 className="text-sm">Chronic Conditions</h4>
               </div>
             </div>
 
