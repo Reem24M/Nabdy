@@ -1,9 +1,13 @@
 import RoutesApp from "./RoutesApp"
 import NavBar from './components/navbar'
 import Footer from './components/footer'
+import { Toaster } from "sonner";
+// import "react-toastify/dist/ReactToastify.css";
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen">
+           <Toaster richColors closeButton />
+
       {/* Navbar */}
       <header>
         <NavBar />

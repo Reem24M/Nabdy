@@ -6,6 +6,7 @@ import { LogIn } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 
 import Img from "../../../public/bg.jpg";
+import { toast } from "sonner";
 
 export default function Login() {
   const { login } = useAuth();
@@ -31,7 +32,7 @@ export default function Login() {
     if (data.email === "omar@gmail.com"){ login("patient"); navigate(`/patient/dashboard`); return;}
     else if (data.email === "mohammed@gmail.com") { login("doctor"); navigate(`/doctor/dashboard`); return;}
     else if (data.email === "anas@gmail.com") { login("labDoctor"); navigate(`/labDoctor/dashboard`); return;}
-    else login("guest");
+    else toast.error("Invalid email or password",{position:"top-center"});
 
     
   };

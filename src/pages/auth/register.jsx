@@ -39,7 +39,7 @@ const labDoctorSchema = baseSchema.extend({
 
 export default function Register() {
   const [role, setRole] = useState(null); 
-  const { signup, login } = useAuth();
+  const { signup } = useAuth();
   const navigate = useNavigate();
 
   const schema = role === "patient" ? patientSchema :
