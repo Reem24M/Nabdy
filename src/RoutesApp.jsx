@@ -1,20 +1,17 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home/home'
-import DoctorDashboard from './pages/Doctor/pages/HospitalDoctorDashboard.jsx'
-import PatientDashboard from './pages/Patient/PatientDashboard'
-import Login from './pages/auth/login'
-import Register from './pages/auth/register'
-import ForgetPassword from './pages/auth/forgetpassword'
-import ResetPassword from './pages/auth/resetpassword'
-
-import LabDashboard from './pages/labDoctors/HospitalDoctorDashboard.jsx'
-import Emergency from './pages/EmergencyPage.jsx'
-import PatientDetails from './pages/labDoctors/PatientDetails.jsx'
-import LabDoctorProfile from './pages/labDoctors/LabDoctorProfile.jsx'
-import SettingsPage from './pages/SettingsPage.jsx'
-import DoctorProfile from './pages/Doctor/pages/doctorProfile.jsx'
-// import PatientProfile from './pages/Patient/pages/patientprofile.jsx'
+import Home from './features/Home/pages/home.jsx'
+import DoctorDashboard from './features/Doctor/pages/HospitalDoctorDashboard.jsx'
+import PatientDashboard from './features/Patient/pages/PatientDashboard.jsx'
+import Login from './features/auth/login.jsx'
+import Register from './features/auth/register.jsx'
+import ForgetPassword from './features/auth/forgetpassword.jsx'
+import PatientDetails from './features/labDoctors/pages/PatientDetails.jsx'
+import LabDashboard from './features/labDoctors/pages/HospitalDoctorDashboard.jsx'
+// import Emergency from './pages/EmergencyPage.jsx'
+import LabDoctorProfile from './features/labDoctors/pages/LabDoctorProfile.jsx'
+import SettingsPage from './features/Settings/pages/SettingsPage.jsx'
+import DoctorProfile from './features/Doctor/pages/doctorProfile.jsx'
 export default function RoutesApp() {
   return (
     <div className='bg-gray-200 min-h-lvh '>
@@ -28,8 +25,7 @@ export default function RoutesApp() {
         <Route path='/auth/login' element={<Login />} />
         <Route path='/auth/register' element={<Register />} />
         <Route path='/auth/forgetpassword' element={<ForgetPassword />} />
-        <Route path='/auth/resetpassword' element={<ResetPassword />} />
-       
+
         {/* Doctor routes */}
         <Route path='/doctor/dashboard' element={<DoctorDashboard />} />
         <Route path='/doctor/profile' element={<DoctorProfile />} />
@@ -41,12 +37,12 @@ export default function RoutesApp() {
         <Route path="/patient/:id" element={<PatientDetails />} />
         <Route path='/labDoctor/profile' element={<LabDoctorProfile />} />
         {/* emergency routes */}
-        <Route path='/emergency' element={<Emergency />} />
+        {/* <Route path='/emergency' element={<Emergency />} /> */}
         {/* settings */}
         <Route path='/:role/settings' element={<SettingsPage />} />
         <Route path='/patient/settings' element={<SettingsPage />} />
-        <Route  path='/doctor/settings' element={<SettingsPage />} />
-        <Route  path='/lab-doctor/settings' element={<SettingsPage />} />
+        <Route path='/doctor/settings' element={<SettingsPage />} />
+        <Route path='/lab-doctor/settings' element={<SettingsPage />} />
 
       </Routes>
     </div>

@@ -1,6 +1,6 @@
 import RoutesApp from "./RoutesApp"
-import NavBar from './components/navbar'
-import Footer from './components/footer'
+import NavBar from './shared/components/navbar'
+import Footer from './shared/components/footer'
 import { Toaster } from "sonner";
 // import "react-toastify/dist/ReactToastify.css";
 export default function App() {
