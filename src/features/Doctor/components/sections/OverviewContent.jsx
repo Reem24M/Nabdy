@@ -6,26 +6,42 @@ const OverviewContent = ({ patient }) => {
   if (!patient) return null;
 
   return (
-    <div className="space-y-4">
-      <div className=" !rounded-lg" style={{ backgroundColor: '#11294B' }}>
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Activity className="w-5 h-5" style={{ color: '#169CF6' }} />
+    <div className="space-y-2 sm:space-y-3 lg:space-y-4">
+      {/* --- Health Overview --- */}
+      <div className="p-2 sm:p-3 lg:p-4 rounded-lg bg-[#11294B]">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2 sm:mb-3">
+          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white flex items-center gap-2">
+            <Activity
+              className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400"
+              aria-hidden
+            />
             Health Overview
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
           {patient.overviewMetrics.map((metric) => (
-            <div key={metric.id} className="p-3 !rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg" style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)' }}>
-                  <div className="w-4 h-4" style={{ color: '#169CF6' }} />
+            <div
+              key={metric.id}
+              className="p-2 sm:p-3 rounded-lg bg-white/5 hover:bg-white/6 transition-colors"
+            >
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 rounded-lg bg-[rgba(22,156,246,0.2)] flex items-center justify-center">
+                  <div
+                    className="w-3 sm:w-4 h-3 sm:h-4 text-sky-400"
+                    aria-hidden
+                  />
                 </div>
-                <div className="flex-1">
-                  <p className="text-white/80 text-sm">{metric.label}</p>
-                  <div className="flex items-center justify-between">
-                    <p className="text-white font-bold">{metric.value}</p>
+
+                <div className="flex-1 min-w-0">
+                  <p className="text-white/80 text-xs sm:text-sm break-words">
+                    {metric.label}
+                  </p>
+
+                  <div className="flex items-center justify-between mt-1 gap-2">
+                    <p className="text-white font-bold text-xs sm:text-sm break-words">
+                      {metric.value}
+                    </p>
                     <StatusBadge status={metric.status} />
                   </div>
                 </div>
@@ -35,35 +51,67 @@ const OverviewContent = ({ patient }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="p-5 !rounded-lg" style={{ backgroundColor: '#11294B', border: '1px solid rgba(255,255,255,0.1)' }}>
-          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <Calendar className="w-5 h-5" style={{ color: '#169CF6' }} />
+      {/* --- Main Grid --- */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-3 lg:gap-4">
+        {/* --- Appointments --- */}
+        <div className="p-2 sm:p-3 lg:p-4 rounded-lg bg-[#11294B]">
+          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+            <Calendar
+              className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400"
+              aria-hidden
+            />
             Upcoming Appointments
           </h3>
 
-          {patient.appointments.slice(0, 2).map((appointment) => (
-            <div key={appointment.id} className="p-3 !rounded-lg mb-2" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-white font-medium">{appointment.doctor}</span>
-                <span className="text-white/60 text-sm">{appointment.time}</span>
+          <div className="space-y-2">
+            {patient.appointments.slice(0, 2).map((appointment) => (
+              <div
+                key={appointment.id}
+                className="p-2 sm:p-3 rounded-lg bg-white/5"
+              >
+                <div className="flex items-start justify-between mb-1">
+                  <span className="text-white font-medium text-xs sm:text-sm break-words">
+                    {appointment.doctor}
+                  </span>
+                  <span className="text-white/60 text-xs sm:text-sm whitespace-nowrap">
+                    {appointment.time}
+                  </span>
+                </div>
+
+                <p className="text-white/80 text-xs sm:text-sm mb-1 break-words">
+                  {appointment.type}
+                </p>
+
+                <p className="text-white/60 text-xs break-words">
+                  {appointment.location}
+                </p>
               </div>
-              <p className="text-white/80 text-sm mb-1">{appointment.type}</p>
-              <p className="text-white/60 text-xs">{appointment.location}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="p-5 !rounded-lg" style={{ backgroundColor: '#11294B', border: '1px solid rgba(255,255,255,0.1)' }}>
-          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <AlertCircle className="w-5 h-5" style={{ color: '#169CF6' }} />
+        {/* --- Conditions --- */}
+        <div className="p-2 sm:p-3 lg:p-4 rounded-lg bg-[#11294B]">
+          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+            <AlertCircle
+              className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400"
+              aria-hidden
+            />
             Chronic Conditions
           </h3>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            {patient.conditions.length === 0 && (
+              <p className="text-white/70 text-xs">
+                No chronic conditions listed.
+              </p>
+            )}
+
             {patient.conditions.map((condition, index) => (
-              <span key={index} className="px-3 py-1.5 !rounded-full text-xs font-medium"
-                style={{ backgroundColor: 'rgba(22, 156, 246, 0.2)', color: '#169CF6' }}>
+              <span
+                key={index}
+                className="px-2.5 sm:px-3 py-1 rounded-full text-xs font-medium bg-[rgba(22,156,246,0.18)] text-sky-400"
+              >
                 {condition}
               </span>
             ))}
