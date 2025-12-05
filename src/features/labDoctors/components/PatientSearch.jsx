@@ -1,32 +1,37 @@
 import React from "react";
 
-export default function PatientSearch({ searchQuery, setSearchQuery, onSearch, error }) {
+export default function PatientSearch({
+  searchQuery,
+  setSearchQuery,
+  onSearch,
+  error,
+}) {
   return (
     <form
       onSubmit={onSearch}
-      className="w-full flex flex-col sm:flex-row sm:items-end gap-4"
+      className="w-full flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3"
     >
       {/* INPUT */}
-      <div className="flex-1 w-full">
-        <label className="text-sm text-slate-400 block mb-1">
+      <div className="flex-1 w-full min-w-0">
+        <label className="text-xs sm:text-sm text-white/60 block mb-1 sm:mb-1.5">
           Search by National ID
         </label>
         <input
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="e.g. 12345678901234"
-          className="w-full rounded-xl bg-[#021619] border border-slate-700 
-                     p-3 text-slate-100 placeholder-slate-500 
-                     focus:outline-none focus:ring-2 focus:ring-sky-500"
+          className="w-full rounded-lg sm:rounded-xl bg-[#11294B] border border-white/20 
+                     p-2 sm:p-2.5 lg:p-3 text-xs sm:text-sm text-white placeholder-white/40 
+                     focus:outline-none focus:ring-2 focus:ring-[#169CF6] focus:border-transparent transition-all"
         />
       </div>
 
       {/* BUTTONS */}
-      <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+      <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto flex-shrink-0">
         <button
-          className="w-full sm:w-auto p-3 !rounded-lg 
-                     bg-gradient-to-r from-sky-400 to-sky-600 
-                     text-black font-semibold"
+          className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg 
+                     bg-[#169CF6] hover:bg-[#169CF6]/90 
+                     text-white font-semibold text-xs sm:text-sm transition-colors"
         >
           Find Patient
         </button>
@@ -34,7 +39,7 @@ export default function PatientSearch({ searchQuery, setSearchQuery, onSearch, e
         <button
           type="button"
           onClick={() => setSearchQuery("")}
-          className="w-full sm:w-auto p-3 !rounded-lg border border-slate-700 text-slate-300"
+          className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg border border-white/20 text-white/80 hover:bg-white/5 text-xs sm:text-sm transition-colors"
         >
           Clear
         </button>
@@ -42,7 +47,7 @@ export default function PatientSearch({ searchQuery, setSearchQuery, onSearch, e
 
       {/* ERROR MESSAGE */}
       {error && (
-        <div className="text-sm text-amber-300 mt-1 sm:mt-2 sm:ml-2">
+        <div className="text-xs sm:text-sm text-amber-300 mt-1 sm:mt-2 col-span-full">
           {error}
         </div>
       )}

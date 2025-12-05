@@ -1,10 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Search, Clock, Calendar, Users, FileText } from "lucide-react";
 import { patientRecords } from "../data/patientRecords";
 import StatsCard from "../components/StatsCard";
-import StatusBadge from "../components/StatusBadge";
-import PatientSummaryCard from "../components/PatientSummaryCard";
-import SearchForm from "../components/SearchForm";
 import OverviewContent from "../components/sections/OverviewContent";
 import MedicalHistoryContent from "../components/sections/MedicalHistoryContent";
 import LabResultsContent from "../components/sections/LabResultsContent";
